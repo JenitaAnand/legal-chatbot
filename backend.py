@@ -25,8 +25,7 @@ with open("C:/Users/anand/law_assistant_app/backendfolder/bm25_model.pkl", 'rb')
 
 normalizer = IndicNormalizerFactory().get_normalizer("ta")
 model = SentenceTransformer("intfloat/multilingual-e5-base")
-git rm Procfile
-git commit -m "Switch to Docker deployment"
+
 
 # ==== FastAPI setup ====
 app = FastAPI()
