@@ -1,6 +1,9 @@
-fastapi==0.95.2
-uvicorn==0.22.0
-sentence-transformers==2.2.2
-faiss-cpu==1.7.4
-rank_bm25==0.2.1
-python-multipart==0.0.6
+
+fastapi
+uvicorn
+faiss-cpu
+indic-nlp-library
+rank-bm25
+numpy
+sentence-transformers
+google-generativeai

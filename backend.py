@@ -15,16 +15,20 @@ import numpy as np
 import faiss
 
 # ==== Paths ====
-sys.path.append("C:/Users/anand/law_assistant_app/backendfolder/indicnlp/indic_nlp_library-master")
-sys.path.append("C:/Users/anand/law_assistant_app/backendfolder/rank_bm25")
-os.environ['INDIC_RESOURCES_PATH'] = "C:/Users/anand/law_assistant_app/backendfolder/indicnlp/indic_nlp_library-master"
+sys.path.append("./indic_nlp_library-master")
+sys.path.append("./rank_bm25")
+os.environ['INDIC_RESOURCES_PATH'] = "./indic_nlp_library-master"
 
 # ==== Load models and data ====
-with open("C:/Users/anand/law_assistant_app/backendfolder/bm25_model.pkl", 'rb') as f:
+with open("./bm25_model.pkl", 'rb') as f:
     bm25, law_objects = pickle.load(f)
+
 
 normalizer = IndicNormalizerFactory().get_normalizer("ta")
 model = SentenceTransformer("intfloat/multilingual-e5-base")
+
+# ==== Configure Gemini API ====
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
 # ==== FastAPI setup ====
@@ -128,3 +132,15 @@ async def ping():
 # ==== Run app ====
 if __name__ == "__main__":
     uvicorn.run("backend:app", host="0.0.0.0", port=8000, reload=True)
+
+    
+
+
+
+
+
+
+
+
+
+
