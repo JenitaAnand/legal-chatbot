@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from google import genai
-import google.generativeai as genai
-# ==== Your current imports ====
+import google.generativeai as genai  # ✅ Keep this line only
+
+# The rest of your imports
 import sys
 import os
 import pickle
@@ -13,6 +13,7 @@ from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
 from sentence_transformers import SentenceTransformer
 import numpy as np
 import faiss
+
 
 # ==== Paths ====
 sys.path.append("./indic_nlp_library-master")
@@ -133,7 +134,7 @@ async def ping():
 if __name__ == "__main__":
     uvicorn.run("backend:app", host="0.0.0.0", port=8000, reload=True)
 
-    
+
 
 
 
